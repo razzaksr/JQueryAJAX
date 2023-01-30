@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple post to express</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            
+            // simple get mapping with parameters
+            $("#g").click(function(){
+                $.get("/say/ikku/tho",function(d,s){
+                    alert(d+" "+s)
+                })
+            })
+
+            // simple post with built in json
+            $("#ps").click(function(){
+                $.post("/hey",{
+                    "one":"Java",
+                    "two":"MERN",
+                    "three":"python"
+                },function(d,s){
+                    alert(d+" "+s)
+                })
+            })
+
+            $("#check").submit(function(e){
+                alert("but clocked");
+                //e.preventDefault();
+        
+                const one=$("#skill").val();
+                const two=$("#exp").val();
+        
+                alert("About to send "+one+" "+two);
+        
+                $.post("/bson",{
+                    "skill":one,
+                    "exp":two
+                },function(d,s){
+                     alert(JSON.stringify(d)+" "+s)
+                });
+            })
+        })
+    </script>
+    <button id="g">Getting</button>
+    <button id="ps">Simple posting</button>
+
+    <form id="check">
+        <input type="text" id="skill">
+        <input type="text" id="exp">
+        <input type="submit" value="check">
+    </form>
+</body>
+</html>

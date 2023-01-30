@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attributes</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+
+            // typical dom attribute filter
+            $(".hai").dblclick(function(eve){
+                alert(eve.target.innerHTML)
+                alert(eve.target.tagName)
+                alert(eve.target.className)
+            })
+
+            // jquery builtin attribute filter
+            $("#hey").mouseenter(function(){
+                alert(
+                    $(this).attr("src")+" "+
+                    $(this).attr("alt")+" "+
+                    $(this).attr("width")+" "+
+                    $(this).attr("height")
+                );
+            })
+
+            // jquery builtin attribute filter and change values of attributes
+            $("#hey").mouseleave(function(){
+                $(this).attr("width","20%");
+                $(this).attr("height","100%");
+            })
+
+            // jquery custom attribute filter using data()
+            $("#hi").mouseenter(function(){
+                alert(
+                    $(this).attr("src")+" "+
+                    $(this).data("info")+" "+
+                    $(this).data("width")+" "+
+                    $(this).data("height")
+                );
+            })
+
+            // jquery custom attribute filter using data() and change custom attributes values
+            $("#hi").mouseleave(function(){
+                $(this).data("width","10%");
+                $(this).data("height","10%");
+                alert(
+                    $(this).data("width")+" "+
+                    $(this).data("height")
+                );
+            })
+        })
+    </script>
+
+    <button class="hai" style="color: blue;">
+        SaySome
+    </button>
+
+    <img id="hey" src="/pics/night.jpg" alt="fine night" width="100%" height="50%">
+
+    <img id="hi" src="/pics/react.png" data-info="react componants" data-width="50%" data-height="50%">
+
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document function</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        /*$(document).ready(function(){
+            $("p").mouseenter(function(){
+                $("p").html("MyHover");
+                $("p").css("color","green");
+            })
+            $("p").mouseleave(function(){
+                $("p").html("I Left");
+                $("p").css("color","red");
+            })
+        })
+*/
+        $(document).ready(function(){
+            $("p").mouseenter(function(){
+                $(this).html("MyHover");
+                $(this).css("color","green");
+            })
+            $("p").mouseleave(function(){
+                $(this).html("I Left");
+                $(this).css("color","red");
+            })
+
+            //$("p").unbind(); // relinquish the events
+        })
+    </script>
+    <p>My Base</p>
+</body>
+</html>
